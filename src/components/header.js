@@ -1,4 +1,4 @@
-console.log(axios);
+console.log("axios", axios);
 
 
 const Header = (title, date, temp) => {

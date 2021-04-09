@@ -23,7 +23,7 @@ const Card = (article) => {
   authorName.textContent = `${authorName}`;
 
   cardClass.addEventListener("click", function(event) {
-    console.log(article.cardClass.headline.textContent)
+    // console.log(article.cardClass.headline.textContent)
   });
   // TASK 5
   // ---------------------
@@ -47,7 +47,38 @@ const Card = (article) => {
 }
 console.log(Card);
 
+
 const cardAppender = (selector) => {
+  
+  axios.get(`https://lambda-times-api.herokuapp.com/topics`).then(topicsData => {
+    topicsData.data.topics.forEach(topic => {
+      console.log("topic", topic)
+   
+    axios.get('https://lambda-times-api.herokuapp.com/articles').then(articlesData => {
+      // console.log(articlesData)
+     
+          const newCard = document.querySelector(selector);
+          
+          const cardData = articlesData.data.articles[topic];
+          console.log(newCard)
+
+          for(let i = 0; i < cardData.length; i++){
+            newCard.append(Card(cardData[i]));
+          }
+      console.log("Step 6 Success"); 
+        // })
+      // });
+      
+
+    
+    // .catch(err => {
+    // console.log("Step 6 Error:", err)
+    // });
+    
+    });
+ 
+  });
+  });
   // TASK 6
   // ---------------------
   // Implement this function that takes a css selector as its only argument.
@@ -56,6 +87,7 @@ const cardAppender = (selector) => {
   // Create a card from each and every article object in the response, using the Card component.
   // Append each card to the element in the DOM that matches the selector passed to the function.
   //
+
 }
 
 export { Card, cardAppender }
