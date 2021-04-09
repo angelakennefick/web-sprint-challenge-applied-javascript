@@ -13,7 +13,7 @@ const Tabs = (topics) => {
     topicsUl.appendChild(topicsLi); 
   });
   topicsClass.appendChild(topicsUl);
-  topicsClass.classList.add('topicsClass');
+  topicsClass.classList.add('topics');
  
   // TASK 3
   // ---------------------
