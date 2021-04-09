@@ -23,7 +23,7 @@ const Card = (article) => {
   authorName.textContent = `${authorName}`;
 
   cardClass.addEventListener("click", function(event) {
-    // console.log(article.cardClass.headline.textContent)
+    // console.log(headline)
   });
   // TASK 5
   // ---------------------
@@ -49,16 +49,16 @@ console.log(Card);
 
 
 const cardAppender = (selector) => {
-  
+
   axios.get(`https://lambda-times-api.herokuapp.com/topics`).then(topicsData => {
     topicsData.data.topics.forEach(topic => {
       console.log("topic", topic)
-   
+
     axios.get('https://lambda-times-api.herokuapp.com/articles').then(articlesData => {
       // console.log(articlesData)
-     
+
           const newCard = document.querySelector(selector);
-          
+
           const cardData = articlesData.data.articles[topic];
           console.log(newCard)
 
@@ -68,25 +68,21 @@ const cardAppender = (selector) => {
       console.log("Step 6 Success"); 
         // })
       // });
-      
 
-    
+
+
     // .catch(err => {
     // console.log("Step 6 Error:", err)
     // });
-    
+
     });
- 
+
   });
   });
   // TASK 6
   // ---------------------
   // Implement this function that takes a css selector as its only argument.
-  // It should obtain articles from this endpoint: `https://lambda-times-api.herokuapp.com/articles`
-  // However, the articles do not come organized in a single, neat array. Inspect the response closely!
-  // Create a card from each and every article object in the response, using the Card component.
-  // Append each card to the element in the DOM that matches the selector passed to the function.
-  //
+
 
 }
 
