@@ -17,7 +17,7 @@ const Header = (title, date, temp) => {
   hTitle.textContent = title.hTitle;
   hTemp.textContent = temp.hTemp;
 
-  
+
 
 
   // TASK 1
@@ -32,9 +32,11 @@ const Header = (title, date, temp) => {
   //    <span class="temp">{ temp }</span>
   //  </div>
   //
+  return headerClass;
 }
-
+console.log(header);
 const headerAppender = (selector) => {
+
   // TASK 2
   // ---------------------
   // Implement this function taking a css selector as its only argument.
