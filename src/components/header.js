@@ -1,3 +1,6 @@
+console.log(axios);
+
+
 const Header = (title, date, temp) => {
   const headerClass = document.createElement('div');
   const hDate = document.createElement('span');
@@ -13,9 +16,9 @@ const Header = (title, date, temp) => {
   hTitle.classList.add('title');
   hTemp.classList.add('temp');
 
-  hDate.textContent = date.hDate;
-  hTitle.textContent = title.hTitle;
-  hTemp.textContent = temp.hTemp;
+  hDate.textContent = `${date}`;
+  hTitle.textContent = `${title}`;
+  hTemp.textContent = `${temp}`
 
 
 
@@ -34,9 +37,9 @@ const Header = (title, date, temp) => {
   //
   return headerClass;
 }
-console.log(header);
+console.log(Header);
 const headerAppender = (selector) => {
-
+  document.querySelector(selector).appendChild(Header('Lambda Times', 'April 9, 2021', '64°'));
   // TASK 2
   // ---------------------
   // Implement this function taking a css selector as its only argument.
